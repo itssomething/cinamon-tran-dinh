@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="EnterpriseApplication5-ejb/src/java"/>
+	<classpathentry kind="src" path="EnterpriseApplication5-war/src/java"/>
+	<classpathentry kind="lib" path="build/EnterpriseApplication5-ejb.jar"/>
+	<classpathentry kind="lib" path="EnterpriseApplication5-ejb/dist/EnterpriseApplication5-ejb.jar"/>
+	<classpathentry kind="output" path="EnterpriseApplication5-ejb/build/classes"/>
+</classpath>
