@@ -30,4 +30,6 @@ public interface FullNameFacadeLocal {
 
     int count();
     
+    FullName findByCustomerID(int customerID);
+    
 }

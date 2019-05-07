@@ -43,10 +43,10 @@ public class Phone implements Serializable {
     @Basic(optional = false)
     @Column(name = "PhoneID")
     private Integer phoneID;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "SectionCode")
     private String sectionCode;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "Phonenumber")
     private String phonenumber;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "phonePhoneID")

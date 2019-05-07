@@ -27,6 +27,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import patterns.state.DeliveringState;
+import patterns.state.OrderState;
+import patterns.state.PackagedState;
+import patterns.state.ReceivedState;
 
 /**
  *
@@ -50,7 +54,7 @@ public class Order implements Serializable {
     private Integer orderID;
     @Column(name = "OrderTime")
     private Integer orderTime;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "Status")
     private String status;
     @JoinColumn(name = "CartCartID", referencedColumnName = "CartID")
@@ -99,8 +103,25 @@ public class Order implements Serializable {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(int type) {
+        switch(type) {
+            case 1:
+                OrderState s = new ReceivedState();
+                this.status = s.getState();
+                break;
+            case 2:
+                OrderState s2 = new PackagedState();
+                this.status = s2.getState();
+                break;
+            case 3:
+                OrderState s3 = new DeliveringState();
+                this.status = s3.getState();
+                break;
+            default:
+                OrderState ss = new ReceivedState();
+                this.status = ss.getState();
+                break;
+        }
     }
 
     public Cart getCartCartID() {

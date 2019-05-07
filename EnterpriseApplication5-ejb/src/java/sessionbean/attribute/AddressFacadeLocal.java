@@ -30,4 +30,6 @@ public interface AddressFacadeLocal {
 
     int count();
     
+    Address findByCustomerID(int customerID);
+    
 }

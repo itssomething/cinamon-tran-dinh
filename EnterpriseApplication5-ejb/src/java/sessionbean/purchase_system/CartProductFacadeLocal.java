@@ -36,5 +36,8 @@ public interface CartProductFacadeLocal {
     CartProduct findByProductAndCustomer(int productID, int customerID);
     
 //    void save(CartProduct cartProduct);
+    List<CartProduct> findByCustomerID(int customerID);
+    
+    List<CartProduct> findByStatusAndCustomerID(int status, int customerID);
     
 }

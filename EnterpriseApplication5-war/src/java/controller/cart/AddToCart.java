@@ -47,7 +47,6 @@ public class AddToCart extends HttpServlet {
         int productID = Integer.parseInt(request.getParameter("productID"));
         
         
-        // TODO: PROCESS IN CARTPRODUCT TABLE SHIT
         CartProduct cartProduct = new CartProduct();
         try{
             cartProduct = cpfl.findByProductAndCustomer(productID, customerID);

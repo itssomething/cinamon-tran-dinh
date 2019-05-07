@@ -30,4 +30,5 @@ public interface OrderFacadeLocal {
 
     int count();
     
+    void createWithStatus(String status);
 }

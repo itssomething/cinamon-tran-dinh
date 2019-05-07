@@ -33,4 +33,6 @@ public interface ProductFacadeLocal {
     List<Product> getAllComputer();
     
     Product findByProductID(int id);
+    
+    List<Product> searchByName(String name);
 }

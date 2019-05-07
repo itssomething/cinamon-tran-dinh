@@ -45,13 +45,13 @@ public class FullName implements Serializable {
     @Basic(optional = false)
     @Column(name = "FNID")
     private Integer fnid;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "FirstName")
     private String firstName;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "MiddleName")
     private String middleName;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "Lastname")
     private String lastname;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fullNameFNID")

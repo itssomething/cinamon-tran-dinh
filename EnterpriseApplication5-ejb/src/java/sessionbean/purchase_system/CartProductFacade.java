@@ -59,6 +59,26 @@ public class CartProductFacade extends AbstractFacade<CartProduct> implements Ca
 //    public void save(CartProduct cartProduct) {
 //        Query q = em.create
 //    }
+
+    @Override
+    public List<CartProduct> findByCustomerID(int customerID) {
+        Query q = em.createNativeQuery("select * from cartproduct where CustomerCustomerID = ?",
+                CartProduct.class)
+                .setParameter(1, customerID);
+        List<CartProduct> cartProductList = q.getResultList();
+        
+        return cartProductList;
+    }
+
+    @Override
+    public List<CartProduct> findByStatusAndCustomerID(int status, int customerID) {
+        Query q = em.createNativeQuery("select * from cartproduct where Status = ? and CustomerCustomerID = ?",
+                CartProduct.class)
+                .setParameter(1, status)
+                .setParameter(2, customerID);
+        List<CartProduct> cartProducts = q.getResultList();
+        return cartProducts;
+    }
     
 
 }

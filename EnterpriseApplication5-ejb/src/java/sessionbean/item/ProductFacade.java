@@ -47,4 +47,12 @@ public class ProductFacade extends AbstractFacade<Product> implements ProductFac
         return product;
     }
 
+  @Override
+  public List<Product> searchByName(String name) {
+    Query q = em.createNativeQuery("select * from product where name like ?", Product.class)
+            .setParameter(1, "%" + name + "%");
+    List<Product> products = q.getResultList();
+    return products;
+  }
+
 }

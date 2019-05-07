@@ -7,6 +7,9 @@ package controller;
 
 import dao.AccountDAO;
 import entities.attribute.Account;
+import entities.attribute.Address;
+import entities.attribute.FullName;
+import entities.attribute.Phone;
 import entities.customer.Customer;
 import form.CustomerForm;
 import java.io.IOException;
@@ -23,6 +26,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import sessionbean.attribute.AccountFacadeLocal;
+import sessionbean.attribute.AddressFacadeLocal;
+import sessionbean.attribute.FullNameFacadeLocal;
+import sessionbean.attribute.PhoneFacadeLocal;
 import sessionbean.customer.CustomerFacadeLocal;
 
 /**
@@ -38,6 +44,15 @@ public class CustomerCreate extends HttpServlet {
     @EJB
     CustomerFacadeLocal cfl;
     private static final long serialVersionUID = 1L;
+
+    @EJB
+    AddressFacadeLocal adressfl;
+
+    @EJB
+    PhoneFacadeLocal pfl;
+
+    @EJB
+    FullNameFacadeLocal ffl;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,24 +112,48 @@ public class CustomerCreate extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-//        String firstName = request.getParameter("firstName");
-//        String middleName = request.getParameter("middleName");
-//        String lastName = request.getParameter("lastName");
-//        String district = request.getParameter("district");
-//        String city = request.getParameter("city");
-//        String country = request.getParameter("country");
-//        String sectionCode = request.getParameter("sectionCode");
-//        String phoneNumber = request.getParameter("phoneNumber");
+        String firstName = request.getParameter("firstName");
+        String middleName = request.getParameter("middleName");
+        String lastName = request.getParameter("lastName");
+        String district = request.getParameter("district");
+        String city = request.getParameter("city");
+        String country = request.getParameter("country");
+        String sectionCode = request.getParameter("sectionCode");
+        String phoneNumber = request.getParameter("phoneNumber");
 
         Account account = new Account();
-        afl.createAccount(username, password);
-        account = afl.findByUserName(username);
-        Integer id = account.getAccountID();
+        account.setUsername(username);
+        account.setUsername(username);
+        afl.create(account);
+//        account = afl.findByUserName(username);
+//        Integer id = account.getAccountID();
         Customer customer = new Customer();
-        
+
         
         customer.setAccountAccountID(account);
         cfl.create(customer);
+
+//        Address address = new Address();
+//        address.setCity(city);
+//        address.setCountry(country);
+//        address.setDistrict(district);
+//        adressfl.create(address);
+//        customer.setAddressAddressID(address);
+//
+//        FullName fullName = new FullName();
+//        fullName.setFirstName(firstName);
+//        fullName.setMiddleName(middleName);
+//        fullName.setLastname(lastName);
+//        ffl.create(fullName);
+//        customer.setFullNameFNID(fullName);
+//
+//        Phone phone = new Phone();
+//        phone.setPhonenumber(phoneNumber);
+//        phone.setSectionCode(sectionCode);
+//        pfl.create(phone);
+//        customer.setPhonePhoneID(phone);
+//
+//        cfl.create(customer);
 //        
 ////        request.getRequestDispatcher("/WEB-INF/views/test.jsp").forward(request, response);
 //        

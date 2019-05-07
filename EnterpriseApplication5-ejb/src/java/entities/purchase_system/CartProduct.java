@@ -52,6 +52,8 @@ public class CartProduct implements Serializable {
     private Integer quantity;
     @Column(name="Status")
     private Integer status;
+    @Column(name="OrderOrderID")
+    private Integer orderOrderID;
 
     public CartProduct() {
     }
@@ -106,6 +108,14 @@ public class CartProduct implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getOrderOrderID() {
+        return orderOrderID;
+    }
+
+    public void setOrderOrderID(Integer orderOrderID) {
+        this.orderOrderID = orderOrderID;
     }
 
     @Override

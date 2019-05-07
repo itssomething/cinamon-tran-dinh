@@ -44,13 +44,13 @@ public class Address implements Serializable {
     @Basic(optional = false)
     @Column(name = "AddressID")
     private Integer addressID;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "City")
     private String city;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "District")
     private String district;
-    @Size(max = 255)
+//    @Size(max = 255)
     @Column(name = "Country")
     private String country;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressAddressID")

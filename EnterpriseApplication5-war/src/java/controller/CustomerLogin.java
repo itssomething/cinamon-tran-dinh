@@ -75,8 +75,9 @@ public class CustomerLogin extends HttpServlet {
             HttpSession session = request.getSession();
             request.setAttribute("username", username);
             session.setAttribute("username", username);
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/customer/loginSuccess.jsp");
-            dispatcher.forward(request, response);
+//            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/customer/loginSuccess.jsp");
+//            dispatcher.forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/computerIndex");
         }
 
     }

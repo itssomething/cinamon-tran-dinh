@@ -9,6 +9,7 @@ import entities.purchase_system.Order;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,14 @@ public class OrderFacade extends AbstractFacade<Order> implements OrderFacadeLoc
 
     public OrderFacade() {
         super(Order.class);
+    }
+
+    @Override
+    public void createWithStatus(String status) {
+        em.createNativeQuery("insert into Order (Status) values (?)")
+                .setParameter(1, status)
+                .executeUpdate(); 
+
     }
     
 }

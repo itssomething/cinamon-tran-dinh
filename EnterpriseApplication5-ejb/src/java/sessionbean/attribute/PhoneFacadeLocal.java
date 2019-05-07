@@ -30,4 +30,6 @@ public interface PhoneFacadeLocal {
 
     int count();
     
+    Phone findByCustomerID(int customerID);
+    
 }
